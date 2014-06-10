@@ -1,0 +1,10 @@
+{
+    "mongo-persistor" : {
+        "host": "localhost",
+        "port": 61928,
+        "pool_size": 5,
+        "db_name": "teleinfo",
+        "username": "<USERNAME>",
+        "password": "<PASSWORD>"
+    }
+}

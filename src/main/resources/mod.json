@@ -1,0 +1,13 @@
+{
+
+  "main":"fr.lhuet.teleinfo.MainVerticle",
+
+  "description":"Teleinfo module",
+  "licenses": ["The Apache Software License Version 2.0"],
+  "author": "Laurent HUET",
+
+  "homepage": "url to your project page",
+
+  "auto-redeploy": true
+
+}

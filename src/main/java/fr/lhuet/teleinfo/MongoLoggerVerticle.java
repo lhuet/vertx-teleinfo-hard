@@ -22,13 +22,9 @@ public class MongoLoggerVerticle extends BusModBase {
         initData();
 
         // Set handler to flush data to mongo every minute
-        vertx.setPeriodic(60000, (Long event) -> {
-            flushToMongo();
-        });
+        vertx.setPeriodic(60000, event -> flushToMongo());
 
-        eb.registerHandler("trame", (Message<JsonObject> event) -> {
-            dataUpdate(event.body());
-        });
+        eb.registerHandler("trame", (Message<JsonObject> event) -> dataUpdate(event.body()));
 
         // Set Handler to expose instant values
         eb.registerHandler("teleinfo-data", (Message<String> request) -> {

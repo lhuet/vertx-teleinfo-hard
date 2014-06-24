@@ -6,5 +6,9 @@
         "db_name": "teleinfo",
         "username": "<USERNAME>",
         "password": "<PASSWORD>"
+    },
+    "dhw-system": {
+        "dhw":"/sys/bus/w1/devices/28-000003c2471d/w1_slave",
+        "buffer-storage":"/sys/bus/w1/devices/28-000003a5aacc/w1_slave"
     }
 }

@@ -15,6 +15,7 @@ public class MainVerticle extends BusModBase {
         container.deployWorkerVerticle("fr.lhuet.teleinfo.MongoPersistor", config.getObject("mongo-persistor"));
         container.deployVerticle("fr.lhuet.teleinfo.MongoLoggerVerticle");
         container.deployWorkerVerticle("fr.lhuet.teleinfo.TeleinfoHardwareWorkerVerticle");
+        container.deployWorkerVerticle("fr.lhuet.dhw.DHWVerticle", config.getObject("dhw-system"));
 
         logger.info("MainVerticle teleinfo launched");
     }

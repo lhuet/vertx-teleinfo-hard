@@ -16,8 +16,6 @@ dependencies {
     provided "org.codehaus.groovy:groovy-all:$groovyVersion"
     provided "io.vertx:lang-groovy:$groovyLangModVersion@jar"
     compile "gnu.io:rxtx:2.2pre2"
-    // compile "io.vertx:mod-mongo-persistor:2.1.0"
-    compile "org.mongodb:mongo-java-driver:2.11.1"
 }
 
 test {

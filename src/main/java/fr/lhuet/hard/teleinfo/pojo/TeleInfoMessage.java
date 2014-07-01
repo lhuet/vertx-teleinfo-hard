@@ -1,4 +1,4 @@
-package fr.lhuet.teleinfo.pojo;
+package fr.lhuet.hard.teleinfo.pojo;
 
 import java.util.Date;
 

@@ -1,12 +1,12 @@
 {
 
-  "main":"fr.lhuet.teleinfo.MainVerticle",
+  "main":"fr.lhuet.hard.MainVerticle",
 
-  "description":"Teleinfo module",
+  "description":"Hardware module (Teleinfo, Domestic Hot Water, Mongo persistor)",
   "licenses": ["The Apache Software License Version 2.0"],
   "author": "Laurent HUET",
 
-  "homepage": "url to your project page",
+  "homepage": "http://lhuet.github.io/blog",
 
   "auto-redeploy": true
 

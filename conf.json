@@ -5,7 +5,8 @@
         "pool_size": 5,
         "db_name": "teleinfo",
         "username": "<USERNAME>",
-        "password": "<PASSWORD>"
+        "password": "<PASSWORD>",
+        "address": "mongo-persistor"
     },
     "dhw-system": {
         "dhw":"/sys/bus/w1/devices/28-000003c2471d/w1_slave",

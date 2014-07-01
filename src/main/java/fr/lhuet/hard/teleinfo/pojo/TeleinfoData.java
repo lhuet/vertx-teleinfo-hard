@@ -1,4 +1,4 @@
-package fr.lhuet.teleinfo.pojo;
+package fr.lhuet.hard.teleinfo.pojo;
 
 /**
  * Created by lhuet on 30/05/14.

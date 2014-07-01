@@ -1,4 +1,4 @@
-package fr.lhuet.teleinfo;
+package fr.lhuet.hard.teleinfo;
 
 import gnu.io.*;
 import org.vertx.java.busmods.BusModBase;

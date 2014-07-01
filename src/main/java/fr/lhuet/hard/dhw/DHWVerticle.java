@@ -1,4 +1,4 @@
-package fr.lhuet.dhw;
+package fr.lhuet.hard.dhw;
 
 import org.vertx.java.busmods.BusModBase;
 import org.vertx.java.core.AsyncResult;

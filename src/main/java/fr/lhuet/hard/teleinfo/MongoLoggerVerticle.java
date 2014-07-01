@@ -1,9 +1,11 @@
-package fr.lhuet.teleinfo;
+package fr.lhuet.hard.teleinfo;
 
-import fr.lhuet.teleinfo.pojo.TeleinfoData;
+import fr.lhuet.hard.teleinfo.pojo.TeleinfoData;
 import org.vertx.java.busmods.BusModBase;
 import org.vertx.java.core.eventbus.Message;
 import org.vertx.java.core.json.JsonObject;
+
+import java.util.Date;
 
 /**
  * Created by lhuet on 29/05/14.
@@ -59,14 +61,23 @@ public class MongoLoggerVerticle extends BusModBase {
     private void flushToMongo() {
 
         JsonObject dataToSave = new JsonObject();
-        dataToSave.putNumber("PMAX", data.getPmax());
-        dataToSave.putNumber("IMAX", data.getImax());
-        dataToSave.putNumber("IMOY", ((float) data.getSumiinst()) / data.getNbdata());
-        dataToSave.putNumber("PMOY", ((float) data.getSumpapp()) /data.getNbdata());
-        dataToSave.putNumber("INDEX", data.getIndexcpt());
+        JsonObject dateJson = new JsonObject();
+        Date now = new Date();
+        dateJson.putValue("$date", now.getTime());
+        dataToSave.putObject("datetime", dateJson);
+        dataToSave.putNumber("pmax", data.getPmax());
+        dataToSave.putNumber("imax", data.getImax());
+        dataToSave.putNumber("imoy", ((float) data.getSumiinst()) / data.getNbdata());
+        dataToSave.putNumber("pmoy", ((float) data.getSumpapp()) /data.getNbdata());
+        dataToSave.putNumber("indexcpt", data.getIndexcpt());
+
+        JsonObject mongoRequest = new JsonObject();
+        mongoRequest.putString("action", "save");
+        mongoRequest.putString("collection", "teleinfo");
+        mongoRequest.putObject("document", dataToSave);
 
         logger.debug("flushing values to mongo " + dataToSave);
-        eb.send("teleinfo-mongopersistor", dataToSave);
+        eb.send("mongo-persistor", mongoRequest);
 
         initData();
     }

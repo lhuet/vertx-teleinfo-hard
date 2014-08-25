@@ -8,6 +8,8 @@ import org.vertx.java.core.eventbus.Message;
 import java.io.IOException;
 
 /**
+ * Domestic Hot Water Verticle
+ *
  * Created by lhuet on 30/05/14.
  */
 public class DHWVerticle extends BusModBase{
@@ -22,6 +24,7 @@ public class DHWVerticle extends BusModBase{
         String w1_dhw_file = getMandatoryStringConfig("dhw");
         String w1_buffer_file = getMandatoryStringConfig("buffer-storage");
 
+        // Read the 2 temp. sensors every minute
         vertx.setPeriodic(60000, event -> {
             try {
                 readW1temp(w1_dhw_file, "dhw");
@@ -31,6 +34,7 @@ public class DHWVerticle extends BusModBase{
             }
         });
 
+        // Handler to serve the sensors values on the vertx event loop
         eb.registerHandler("dhw-temp", (Message<String> req) -> {
             switch (req.body()) {
                 case "dhw":
